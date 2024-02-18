@@ -1,6 +1,5 @@
 package com.example.demo2;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
@@ -23,14 +22,6 @@ public class ClientImpl implements Task2Data.Client {
 
     @Override
     public Task2Data.Result sendData(Task2Data.Address dest, Task2Data.Payload payload) {
-        Task2Data.Result result = ThreadLocalRandom.current().nextBoolean() ? Task2Data.Result.ACCEPTED : Task2Data.Result.REJECTED;
-
-        if (Task2Data.Result.ACCEPTED == result) {
-            System.out.println(LocalDateTime.now() + "address " + dest + " sent success");
-        } else {
-            System.out.println(LocalDateTime.now() + "address " + dest + " rejected");
-        }
-
-        return result;
+        return  ThreadLocalRandom.current().nextBoolean() ? Task2Data.Result.ACCEPTED : Task2Data.Result.REJECTED;
     }
 }
